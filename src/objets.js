@@ -7,9 +7,8 @@ console.log(y);
 
 const z = new Object();
 console.log(z);
-
+const population = 50;
 //propriétés
-
 const terre = {
   satellite: "Lune",
   population: 7e7,
@@ -22,9 +21,13 @@ const terre = {
     console.log("15");
   },
 };
+
+const { temperature, ...reste } = terre;
+console.log(temperature, reste);
 //aucune spécificité dans l'ordre déclaré !
-console.log(terre["satellite"]);
+console.log(terre.temperature);
 console.log(terre.population);
+console.log(terre.satellite);
 
 const prop = "temperature";
 console.log(terre[prop]);
@@ -34,3 +37,20 @@ copy.isOld = true;
 console.log(terre);
 
 terre.getTemperature();
+
+const satellites = "Mars";
+const populations = 0;
+const temperatures = {
+  min: -140,
+  max: 20,
+};
+
+const pop = "populations";
+const sat = "satellites";
+const Lune = {
+  [sat]: satellites,
+  [pop]: populations,
+  temperatures,
+  isOld: false,
+};
+console.log(Lune);
